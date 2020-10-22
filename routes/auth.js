@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../models')
+const passport = require('../config/ppConfig')
 const router = express.Router();
 
 router.get('/signup', (req, res) => {
@@ -17,17 +18,22 @@ router.post('/signup', (req, res) =>  {
     }
   }).then(([user, created]) => {
     //if created, this means success and we can redirect to home
-    if (created) {
-      console.log (`${user.name} was created!`)
-      res.redirect('/')
-    } else {
+    if (created) { //AUTHORIZING FLASH BLOCK ONE
+//      console.log (`${user.name} was created!`) //delete this line FLASH
+      passport.authenticate('local', {
+        successRedirect: '/',
+        successFlash: 'Account created and user logged in.' //added this line FLASH
+      })(req, res) //make sure the request body and response is sucessfully pass to the home page... this looks weird and thats ok... we call this block of cold an immediately invoked function expression or IFFE ("iffy")
+    } else { //SECOND FLASH BLOCK
       //if not created, the email already exists
-      console.log("Email already exists.")
+     //console.log("Email already exists.")//delete this FLASH
+      req.flash('error', 'Email already exists')//Add this FLASH
       res.redirect('/auth/login')
-    }
+    } //THIRD BLOCK FLASH 
   }).catch(error => { //"graceful error handling" catch and error, see what error is and send them to an error page
     //if an error occurs lets see the error
-    console.log(`An error occured: ${error.message}`)
+    req.flash('error', error.message)//ADD THIS FLASH
+    //console.log(`An error occured: ${error.message}`)//DELETE THIS FLASH
     res.redirect('/auth/signup')
   })
 })
@@ -39,5 +45,18 @@ router.post('/signup', (req, res) =>  {
 router.get('/login', (req, res) => {
   res.render('auth/login');
 });
+
+router.post('/login', passport.authenticate('local', { //instead of the callback function with req was run passport.authenticate( strategy, {objectWithACoupleRedirectUrls})
+  successRedirect: '/',                                //this is that object
+  failureRedirect: '/auth/login',
+  failureFlash: 'Invalid username or password', //ADD FLASH
+  successFlash: 'You have logged in!',          //ADD FLASH
+})) 
+
+router.get('/logout', (req, res) => {
+  req.logout()
+  req.flash('success', 'You have logged out.') //ADD FLASH
+  res.redirect('/')
+})
 
 module.exports = router;
