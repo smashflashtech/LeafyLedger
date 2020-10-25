@@ -5,6 +5,7 @@ nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
+  margin: 0px 5px 0px 0px;
 }
 
 h1 {
