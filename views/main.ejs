@@ -1,7 +1,32 @@
-<h2>Plants Directory</h2>
+<h1 class="pdHeading">Plant Directory</h1>
+<section class="pdBody">
 
-<h3>All the API plants should display here</h3>
-<!-- A context object containing API data should be send from the backend -->
+
+<!-- A context object containing API data should be send from the backend apiPlants.data is an array-->
+
+  <section class="pdPlantContainer">
+  <% for (let i = 0; i < apiPlants.data.length; i++) { %>
+  <!-- href -->
+      <div class="well" href="to route that querys one plant">
+        <div class="pdPlantPic">
+          <img class="pdThumb" alt="<%= apiPlants.data[i].common_name %>" src="<%= apiPlants.data[i].image_url %>">
+        </div>
+        <div class="pdPlantDetails">
+          <div class="pdPlantNames">
+            <h2><%= apiPlants.data[i].common_name %></h2>
+            <h3 class="sciName"><%= apiPlants.data[i].scientific_name %></h3>
+            <h3 class="apiId">placeholder for id: <%= apiPlants.data[i].id %></h3>
+          </div>
+          <div class ="pdPlantSave">
+            Save to Ledger 💖
+          </div>
+      </div>
+      </div>
+    <!-- close href -->
+  <% }; %>
+  </section>
+</section>
+
 <!-- Use alligator tags to render those here with a loop -->
 
 <!-- each plant display needs to include hidden form data using the POST method that stores information about the 
