@@ -43,14 +43,15 @@ app.get('/', (req, res) => {                                                //th
 });
 //PRIORITIZE THIS
 app.get('/main', isLoggedIn, (req, res) => {                                //this is rendering the profile page (views/profile.ejs)
-  console.log("Whats up my ninjas")
-  // const plantApiUrl='http://trefle.io/api/v1/plants'
-  // axios.get(plantApiUrl).then(function(apiResponse){
-  //   console.log(apiResponse.data.results)
- // })
-  //TODO: use a request to call the API
-  //  store desired API repsonse data in in a variable
-  // res.render to the 'main' page with a context variable that contains API data - consider using .slice(startIndex, endIndex) to set API limit -- 1 million is a lot of plants to display
+  //console.log("Whats up my ninjas")
+  const plantApiUrl=`https://trefle.io/api/v1/plants?token=${process.env.TREFLE_API_KEY}` //use a request to call the API
+    axios.get(plantApiUrl).then(function(apiResponse){
+//      console.log(apiResponse.data.links)// bookmarking this data for later in case it has to do with pagination      
+//      console.log(apiResponse.data.data)
+//      console.log(apiResponse.data.data.length)         //this array returns 20 plants...seems like JS might be able to get away without json parsing
+      const twentyPlants = apiResponse.data               //store desired API repsonse data in in a variable
+      res.render('main', {apiPlants: twentyPlants})       //res.render to the 'main' page with a context variable that contains API data - API has its own limiter and uses pagination.. need to read the pagination docs to get more plants
+  })
 })
 
 
