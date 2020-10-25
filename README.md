@@ -1,107 +1,56 @@
-# Express Authentication
+# Leafy Ledger
 
-Express authentication template using Passport + flash messages + custom middleware
+Plants brighten up your house, provide a warm, inviting atmosphere, and are shown to boost moods, reduce stress, circulate oxygen, among many other things. However, if you've ever owned plants, you know that it may be difficult to cultivate them and keep them alive. Each plant is unique with different preferences when it comes to climate, sunlight, and water intake. It is also very easy to forget when the last time you watered or repotted your plants.
+ 
+That's where Leafy Ledger comes in!
+ 
+Our app allows you to access information about your favorite plants and track how often you have watered them. Accessing a vast database, you also can view plants that you are interested in, see if housing them would be a good fit for you, and bookmark them for later. Fret no more about your watering schedules and let Leafy Ledger help you with your plant friends!
 
-## What it includes
 
-* Sequelize user model / migration
-* Settings for PostgreSQL
-* Passport and passport-local for authentication
-* Sessions to keep user logged in between pages
-* Flash messages for errors and successes
-* Passwords that are hashed with BCrypt
-* EJS Templating and EJS Layouts
+## Motivation
+The goal of this collaboration was to create an user-friendly application that would practical in the everyday lives of potential users. 
 
-### User Model
+## Technologies Used
 
-| Column Name | Data Type | Notes |
-| --------------- | ------------- | ------------------------------ |
-| id | Integer | Serial Primary Key, Auto-generated |
-| name | String | Must be provided |
-| email | String | Must be unique / used for login |
-| password | String | Stored as a hash |
-| createdAt | Date | Auto-generated |
-| updatedAt | Date | Auto-generated |
+*HTML
+*CSS
+*Javascript
+*Express
+*EJS
+*EJS-Layouts
+*Express-Passport
+*Axios
+*SQL
+*Sequelize
 
-### Default Routes
 
-| Method | Path | Location | Purpose |
-| ------ | ---------------- | -------------- | ------------------- |
-| GET | / | server.js | Home page |
-| GET | /auth/login | auth.js | Login form |
-| GET | /auth/signup | auth.js | Signup form |
-| POST | /auth/login | auth.js | Login user |
-| POST | /auth/signup | auth.js | Creates User |
-| GET | /auth/logout | auth.js | Removes session info |
-| GET | /profile | server.js | Regular User Profile |
+##### Screenshot(s) (optional)
 
-## Steps To Use
 
-#### 1. Create a new repo on Github and use your 'express-authentication' as the template
+## ERD, Wireframe, & User Stories
 
-When we are finished with this boilerplate, we are going to make it a template on Github that will allow us to create a new repo on Github with all this code already loaded in.
-* Go to `github.com` and create a new repository. In the template dropdown, choose this template.
-* Clone your new repo to your local machine
-* Get Codin'!
+![ERD](images/erd_p2_leafyledger.png)
+![Wireframe](images/wireframe_p2-leafyledger.png)
 
-#### 2. Delete any .keep files
+*	As a user I want to log in via email and password to access my Leafy Ledger.
+*	As a user I will browse the catalogue of plants on the main page that displays content from the Trefle.io API.
+*	From the main page I will be able to add plants to my ledger, click on plants to view more details about plants, and navigate to my ledger.
+*	From the details page, I will be able to favorite plants I am currently viewing or navigate back to main page or my ledger.
+*	I will access my ledger to view or delete favorited plants.
+*	For plants that I own, I can add and update information about when I last watered my plants and the soil type I used in my ledger.
+*	AS a user, I can also view additional fun facts about the plants I favorited from my ledger.
 
-The `.keep` files are there to maintain the file structure of the auth. If there is a folder that has nothing in it, git won't add it. The dev work around is to add a file to it that has nothing in it, just forces git to keep the folder so we can use it later.
+## Future Development
 
-#### 3. Install node modules from the package.json
+![ERD-FutureDevelopment](images/erd_p2_leafyledger-fd.png)
 
-```
-npm install
-```
+* In the future the the dead plant button function will change to toggle true/false for dead attribute on server database. Deadplants will be grayscaled and user can view past plants in their dead plant cemetery.
+*	From the ledger, the user will be able to click on a calendar icon to view the cumulative history of waterlogs.
+*	In the future, the user will be able to include information about soil type.
+*	The user will be able to search the main catalogue to find specific plants.
+*	The user will be able to unfavorite a plant using the hot button on the plant directory page.
+*	The hot button will detect if there is data stored for last watered or soil type and pop a modal warning before deletion.
 
-(Or just `npm i` for short)
 
-#### 4. Customize with new project name
 
-Remove defaulty type stuff. Some areas to consider are:
 
-* Title in `layout.ejs`
-* Description/Repo Link in `package.json`
-* Remove boilerplate's README content and replace with new project's readme
-
-#### 5. Create a new database for the new project
-
-Using the sequelize command line interface, you can create a new database from the terminal.
-
-```
-createdb <new_db_name>
-```
-
-#### 6. Update `config.json`
-
-* Change the database name
-* Other settings are likely okay, but check username, password, and dialect
-
-#### 7. Check the models and migrations for relevance to your project's needs
-
-For example, if your project requires a birthdate field, then don't add that in there. 
-
-> When changing your models, update both the model and the migration.
-
-#### 8. Run the migrations
-
-```
-sequelize db:migrate
-```
-
-#### 9. Add a `.env` file with the following fields:
-
-* SESSION_SECRET: Can be any random string; usually a hash in production
-* PORT: Usually 3000 or 8000
-
-#### 10. Run server; make sure it works
-
-```
-nodemon
-```
-
-or
-
-```
-node index.js
-```
