@@ -51,7 +51,7 @@ app.get('/main', isLoggedIn, (req, res) => {                                //th
 //      console.log(apiResponse.data.data.length)         //this array returns 20 plants...seems like JS might be able to get away without json parsing
       const twentyPlants = apiResponse.data               //store desired API repsonse data in in a variable
       res.render('main', {apiPlants: twentyPlants})       //res.render to the 'main' page with a context variable that contains API data - API has its own limiter and uses pagination.. need to read the pagination docs to get more plants
-  })
+    })
 })
 
 
@@ -61,7 +61,7 @@ app.get('/main', isLoggedIn, (req, res) => {                                //th
 //~~~~~~~~~~~~~~~~~~~~ROUTES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 app.use('/auth', require('./routes/auth'));
 //TO DO: ADD IMPORT FOR NEW ROUTES
-
+//app.use('/ledger', require('./routes/ledger'))
 
 var server = app.listen(process.env.PORT || 1031, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 1031}🎧`));
 
