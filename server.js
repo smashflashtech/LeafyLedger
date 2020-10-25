@@ -5,8 +5,9 @@ const session = require('express-session')
 const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
+const axios = require('axios')
 const app = express();
-//require axios - install axios too
+
 
 //~~~~~~~~~~~~~~~~~~~~MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 app.set('view engine', 'ejs');
@@ -42,10 +43,16 @@ app.get('/', (req, res) => {                                                //th
 });
 //PRIORITIZE THIS
 app.get('/main', isLoggedIn, (req, res) => {                                //this is rendering the profile page (views/profile.ejs)
-//TODO: use a request to call the API
-//  store desired API repsonse data in in a variable
-// res.render to the 'main' page with a context variable that contains API data - consider using .slice(startIndex, endIndex) to set API limit -- 1 million is a lot of plants to display
-});
+  console.log("Whats up my ninjas")
+  // const plantApiUrl='http://trefle.io/api/v1/plants'
+  // axios.get(plantApiUrl).then(function(apiResponse){
+  //   console.log(apiResponse.data.results)
+ // })
+  //TODO: use a request to call the API
+  //  store desired API repsonse data in in a variable
+  // res.render to the 'main' page with a context variable that contains API data - consider using .slice(startIndex, endIndex) to set API limit -- 1 million is a lot of plants to display
+})
+
 
 //TO DO: GET route by params to query the API for info on one plant and send to the details.ejs
 
