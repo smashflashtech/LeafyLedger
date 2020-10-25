@@ -23,13 +23,13 @@
               <input hidden type="text" name="pictureUrl" value="<%= plants[i].image_url %>">
               <input hidden type="text" name="apiId" value="<%= plants[i].id %>">
               <input hidden type="text" name="lastWatered" value="">
-              <input hidden type="text" name="dead" value=>
+              <input hidden type="text" name="status" value="<%= plants[i].status %>">
               <input hidden type="text" name="userId" value="<%= currentUser.id %>">
               <button class="btn btn-success" type="submit">Save to Ledger 💖</button> 
             </form>
           </div>
       </div>
       </div>
-    <!-- close href -->
   <% }; %>
   </section>
+  <%console.log("THIS PERSON IS LOGGED ON RIGHT NOW:", currentUser.name, currentUser.id)%>
