@@ -9,16 +9,22 @@
   <!-- href -->
       <div class="well" href="to route that querys one plant">
         <div class="pdPlantPic">
-          <img class="pdThumb" alt="<%= apiPlants.data[i].common_name %>" src="<%= apiPlants.data[i].image_url %>">
+          <img class="pdThumb well well-sm" alt="<%= apiPlants.data[i].common_name %>" src="<%= apiPlants.data[i].image_url %>">
         </div>
         <div class="pdPlantDetails">
           <div class="pdPlantNames">
-            <h2><%= apiPlants.data[i].common_name %></h2>
-            <h3 class="sciName"><%= apiPlants.data[i].scientific_name %></h3>
-            <h3 class="apiId">placeholder for id: <%= apiPlants.data[i].id %></h3>
+            <h2 class ="pdName"><%= apiPlants.data[i].common_name %></h2>
+            <h3 class="pdSciName"><%= apiPlants.data[i].scientific_name %></h3>
+
           </div>
           <div class ="pdPlantSave">
-            Save to Ledger 💖
+            <form method="POST" action="/ledger" class="pdForm">
+              <input hidden type="text" name="name" value="<%= apiPlants.data[i].common_name %>">
+              <input hidden type="text" name="scientificName" value="<%= apiPlants.data[i].scientific_name %>">
+              <input hidden type="text" name="lastWatered" value="">
+              <input hidden type="text" name="pictureUrl" value="<%= apiPlants.data[i].image_url %>">
+              <!-- <input hidden type="text" name="apiId" value="<%= apiPlants.data[i].id %>"> -->
+              <button class="btn btn-success" type="submit">Save to Ledger 💖</button> 
           </div>
       </div>
       </div>
@@ -27,7 +33,6 @@
   </section>
 </section>
 
-<!-- Use alligator tags to render those here with a loop -->
 
 <!-- each plant display needs to include hidden form data using the POST method that stores information about the 
 name, scientificName, lastWatered(empty), pictureURL, and API index integer; the submit button will be the heart emoji...info will
