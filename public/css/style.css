@@ -8,8 +8,9 @@ nav ul li {
 }
 
 h1 {
-  color: chartreuse;
+  color: rgb(192, 212, 171);
 }
+
 /* CSS for Plants Directory */
 
 .pdBody {
@@ -18,6 +19,7 @@ h1 {
 }
 .pdHeading {
   text-align: center;
+  font-family: 'Rock Salt', cursive;
 }
 
 .pdPlantContainer {
@@ -28,25 +30,40 @@ h1 {
 .well {
   background: rgba(255, 255, 255, 0.568);
   display: flex;
+  justify-content: space-between;
   border-radius: 15px;
 }
 
 .pdThumb {
   width: 200px;
+  border-radius: 10px;
+  border-style: ridge;
+}
+
+.pdName{
+  font-family: 'Rock Salt', cursive;
+}
+
+.pdSciName{
+  font-style: italic;
+  margin: -7px 0px 0px 0px;
 }
 
 .pdPlantDetails {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .pdPlantNames{
-  text-align: left;
+  text-align: right;
   align-self: flex-end;
   padding: 0px 0px 0px 15px;
 }
 
 .pdPlantSave {
-  font-size: 25px;
-  float: right;
+  display: flex;
+  align-self: flex-end;
 }
+
+
