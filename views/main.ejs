@@ -19,8 +19,8 @@
           <div class ="pdPlantSave">
             <form method="POST" action="/ledger" class="pdForm">
               <input hidden type="text" name="name" value="<%= plants[i].common_name %>">
-              <input hidden type="text" name="scientificName" value="<%= plants[i].scientific_name %>">
-              <input hidden type="text" name="pictureUrl" value="<%= plants[i].image_url %>">
+              <input hidden type="text" name="scientific_name" value="<%= plants[i].scientific_name %>">
+              <input hidden type="text" name="image_url" value="<%= plants[i].image_url %>">
               <input hidden type="text" name="apiId" value="<%= plants[i].id %>">
               <input hidden type="text" name="lastWatered" value="">
               <input hidden type="text" name="status" value="<%= plants[i].status %>">
