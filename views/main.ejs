@@ -1,43 +1,35 @@
 <h1 class="pdHeading">Plant Directory</h1>
+
+    <%console.log(plants)%>
+    <%console.log(currentUser.id)%>
 <section class="pdBody">
-
-
-<!-- A context object containing API data should be send from the backend apiPlants.data is an array-->
-
+<!-- Currently the backend is sending local data in a context object named 'plants' which is an array of objects -->
   <section class="pdPlantContainer">
-  <% for (let i = 0; i < apiPlants.data.length; i++) { %>
+  <% for (let i = 0; i < plants.length; i++) { %>
   <!-- href -->
-      <div class="well" href="to route that querys one plant">
+      <div class="well">
         <div class="pdPlantPic">
-          <img class="pdThumb well well-sm" alt="<%= apiPlants.data[i].common_name %>" src="<%= apiPlants.data[i].image_url %>">
+          <img class="pdThumb well well-sm" alt="<%= plants[i].common_name %>" src="<%= plants[i].image_url %>">
         </div>
         <div class="pdPlantDetails">
           <div class="pdPlantNames">
-            <h2 class ="pdName"><%= apiPlants.data[i].common_name %></h2>
-            <h3 class="pdSciName"><%= apiPlants.data[i].scientific_name %></h3>
-
+            <h2 class ="pdName"><%= plants[i].common_name %></h2>
+            <h3 class="pdSciName"><%= plants[i].scientific_name %></h3>
           </div>
           <div class ="pdPlantSave">
             <form method="POST" action="/ledger" class="pdForm">
-              <input hidden type="text" name="name" value="<%= apiPlants.data[i].common_name %>">
-              <input hidden type="text" name="scientificName" value="<%= apiPlants.data[i].scientific_name %>">
+              <input hidden type="text" name="name" value="<%= plants[i].common_name %>">
+              <input hidden type="text" name="scientificName" value="<%= plants[i].scientific_name %>">
+              <input hidden type="text" name="pictureUrl" value="<%= plants[i].image_url %>">
+              <input hidden type="text" name="apiId" value="<%= plants[i].id %>">
               <input hidden type="text" name="lastWatered" value="">
-              <input hidden type="text" name="pictureUrl" value="<%= apiPlants.data[i].image_url %>">
-              <input hidden type="text" name="apiId" value="<%= apiPlants.data[i].id %>">
+              <input hidden type="text" name="dead" value=>
               <input hidden type="text" name="userId" value="<%= currentUser.id %>">
               <button class="btn btn-success" type="submit">Save to Ledger 💖</button> 
+            </form>
           </div>
       </div>
       </div>
     <!-- close href -->
   <% }; %>
   </section>
-  <%console.log(currentUser.id)%>
-</section>
-
-
-<!-- each plant display needs to include hidden form data using the POST method that stores information about the 
-name, scientificName, lastWatered(empty), pictureURL, and API index integer; the submit button will be the heart emoji...info will
-be sent to the backend to save it to the database -->
-
-<!-- Clicking on each div should result in storing and ID or NAME of the plant assigned to that div, the URL probably involves a params URL pattern that will be picked up by a route that will use that params to query the API-->
