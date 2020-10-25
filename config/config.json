@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "leafyLedger",
+    "database": "leafyledger",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "leafyLedger_test",
+    "database": "leafyledger_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "leafyLedger_production",
+    "database": "leafyledger_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
