@@ -15,11 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   plant.init({
-    apiId: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    scientificName: DataTypes.STRING,
+    common_name: DataTypes.STRING,
+    scientific_name: DataTypes.STRING,
+    image_url: DataTypes.STRING,
+    apiId: DataTypes.STRING,
     lastWatered: DataTypes.STRING,
-    pictureUrl: DataTypes.STRING
+    status: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'plant',
