@@ -1,3 +1,6 @@
+nav ul {
+  padding: 2px 0px 0px 3px;
+}
 nav ul li {
   text-decoration: none;
   display: inline-block;
@@ -6,4 +9,44 @@ nav ul li {
 
 h1 {
   color: chartreuse;
+}
+/* CSS for Plants Directory */
+
+.pdBody {
+  background: url(https://cdn.pixabay.com/photo/2017/09/24/15/02/plants-2782101_960_720.jpg);
+  background-size: 100%;
+}
+.pdHeading {
+  text-align: center;
+}
+
+.pdPlantContainer {
+  margin: 0px 50px;
+  padding: 25px 0px; 
+}
+
+.well {
+  background: rgba(255, 255, 255, 0.568);
+  display: flex;
+  border-radius: 15px;
+}
+
+.pdThumb {
+  width: 200px;
+}
+
+.pdPlantDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pdPlantNames{
+  text-align: left;
+  align-self: flex-end;
+  padding: 0px 0px 0px 15px;
+}
+
+.pdPlantSave {
+  font-size: 25px;
+  float: right;
 }
