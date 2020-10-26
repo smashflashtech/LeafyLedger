@@ -8,11 +8,11 @@ db.user.findOrCreate({
 }).then(function([returnedUser, created]) {
   db.plant.findOrCreate({
     where: { 
-      apiId: 12,
-      name: "misc",
-      scientificName: "",
+      apiId: parsed('678281'),
+      name: "Evergreen oak",
+      scientificName: "Quercus rotundifolia",
       lastWatered: "",
-      pictureUrl: "",
+      pictureUrl: "https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30",
     }
   }).then(function([plant, created]) {
     returnedUser.addPlant(plant).then( function(relationInfo) {
