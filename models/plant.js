@@ -20,8 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     image_url: DataTypes.STRING,
     apiId: DataTypes.STRING,
     lastWatered: DataTypes.STRING,
-    status: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    status: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'plant',
