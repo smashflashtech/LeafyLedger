@@ -12,6 +12,15 @@ router.use(express.urlencoded({ extended: false }));
 //TO DO: - Get all records from the leafy_ledger database and render to view
 
 
+
+
+
+
+
+
+
+
+
 //ROUTE to POST NEW PLANT to DB and JOIN User and PLANT
 router.post('/', (req, res) => {
   //console.log("This is IT: ", req.body)
@@ -53,5 +62,17 @@ router.post('/', (req, res) => {
 
 //TO DO: ADD A ROUTE FOR DELETING USING METHOD OVERRIDE ON THE POST ROUTE for deleting a plant form the database (the delete buttton is on the 'ledger.ejs')
 
-//TO DO: export the router
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
