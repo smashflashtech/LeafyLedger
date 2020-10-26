@@ -203,7 +203,7 @@ app.get('/main', isLoggedIn, (req, res) => {                                //th
   res.render('main', {plants: twentyPlants})       //res.render to the 'main' page with a context variable that contains API data - API has its own limiter and uses pagination.. need to read the pagination docs to get more plants
 })
 
-//TO DO: GET route by params to query the API for info on one plant and send to the details.ejs
+//API STUFF// TO DO: GET route by params to query the API for info on one plant and send to the details.ejs
 
 
 //~~~~~~~~~~~~~~~~~~~~ROUTES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
