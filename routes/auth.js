@@ -17,7 +17,7 @@ router.post('/signup', (req, res) =>  {
       password: req.body.password,
     }
   }).then(([user, created]) => {
-    //if created, this means success and we can redirect to home
+            //if created, this means success and we can redirect to home
     if (created) { //AUTHORIZING FLASH BLOCK ONE
 //      console.log (`${user.name} was created!`) //delete this line FLASH
       passport.authenticate('local', {

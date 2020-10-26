@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.belongsToMany(models.plant, {through: "plantsUsers"})
     }
 
     //compares entered passwored to hash password (runs on login)

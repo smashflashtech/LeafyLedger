@@ -1,9 +1,70 @@
+nav ul {
+  padding: 2px 0px 0px 3px;
+}
 nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
+  margin: 0px 5px 0px 0px;
 }
 
 h1 {
-  color: chartreuse;
+  color: rgb(192, 212, 171);
 }
+
+/* CSS for Plants Directory */
+
+.pdBody {
+  background: url(https://cdn.pixabay.com/photo/2017/09/24/15/02/plants-2782101_960_720.jpg);
+  background-size: 100%;
+}
+.pdHeading {
+  text-align: center;
+  font-family: 'Rock Salt', cursive;
+}
+
+.pdPlantContainer {
+  margin: 0px 50px;
+  padding: 25px 0px; 
+}
+
+.well {
+  background: rgba(255, 255, 255, 0.568);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+.pdThumb {
+  width: 200px;
+  border-radius: 10px;
+  border-style: ridge;
+}
+
+.pdName{
+  font-family: 'Rock Salt', cursive;
+}
+
+.pdSciName{
+  font-style: italic;
+  margin: -7px 0px 0px 0px;
+}
+
+.pdPlantDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pdPlantNames{
+  text-align: right;
+  align-self: flex-end;
+  padding: 0px 0px 0px 15px;
+}
+
+.pdPlantSave {
+  display: flex;
+  align-self: flex-end;
+}
+
+
