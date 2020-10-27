@@ -1,0 +1,5 @@
+When is the last time you watered <%= editPlant.dataValues.common_name %>?
+<form method="POST" action="/ledger/<%= editPlant.dataValues.id %>/?_method=PUT">
+  <input id="lastWatered" type="text"  name="lastWatered" value="<%=editPlant.dataValues.lastWatered%>">
+  <button type="submit">Save Changes</button>
+</form>
