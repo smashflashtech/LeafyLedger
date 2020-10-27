@@ -18,25 +18,17 @@ router.get('/', isLoggedIn, function(req,res) {
 })
 
 router.delete('/:id', isLoggedIn, function(req, res) {
-    console.log(req.params) // plant id
-    console.log(req.user)
-    req.user.getPlants({
-        where: {
-            id: // not sure what goes here (NOT req.params.id),
-            // we want to delete from join table NOT plant table
-        }
-    }).then(function(plantHell){
-        db.plantsUsers.destroy({
-            // Not sure how to proceed from here
-        })
+    //console.log(req.params) // plant id
+    //console.log(req.user)
+    //FIND THE PLANT GOING TO HELL (DELETED) USING REQ.PARAMS.ID
+    db.plant.findOne({
+        where: { id: req.params.id }
+    }).then(function(deadPlant){
+        //console.log("THIS IS THE PLANT: ", deadPlant)//this works
+        //THEN USE req.user.removePlant(plant) TO DELETE THE ASSOCIATION FROM THE JOIN TABLE
+        req.user.removePlant(deadPlant)
+        res.redirect('/cemetery') //DELETE IS WORKING
     })
-    // db.plant.destroy({
-    //   where: { plant: plant }
-    // }).then(function() {
-    //   // do something when done deleting
-    //   res.redirect('/cemetery')
-    // });
 })
-
 
 module.exports = router;
