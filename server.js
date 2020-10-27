@@ -210,6 +210,7 @@ app.get('/main', isLoggedIn, (req, res) => {                                //th
 app.use('/auth', require('./routes/auth'));
 //TO DO: ADD IMPORT FOR NEW ROUTES
 app.use('/ledger', require('./routes/ledger'))
+app.use('/cemetery', require('./routes/cemetery'))
 
 var server = app.listen(process.env.PORT || 1031, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 1031}🎧`));
 
