@@ -1,24 +1,21 @@
 //TO DO: REQUIRE STATEMENTS
-var express = require('express');   // - express
+const express = require('express');   // - express
 const db = require('../models')     // - DB
-var router = express.Router();      // - express router
+const router = express.Router();      // - express router
+const isLoggedIn = require('../middleware/isLoggedIn');
 // - method override
+const metthodOverride = require("method-override")
 
-//~~~~~~~MiddleWARE~~~~~~~~~~~~~~~//
-router.use(express.urlencoded({ extended: false }));
-
+router.use(methodOverride("_method"))
 
 //TO DO: GET /ledger - return a page with favorited plants
 //TO DO: - Get all records from the leafy_ledger database and render to view
-
-
-
-
-
-
-
-
-
+router.get("/", isLoggedIn, function(req, res) {
+    req.user.getPlants().then(function(alivePlants){
+    console.log(alivePlants)
+    res.render("ledger", { plants: alivePlants})
+  }) 
+})
 
 
 //ROUTE to POST NEW PLANT to DB and JOIN User and PLANT
@@ -63,7 +60,8 @@ router.post('/', (req, res) => {
 //TO DO: ADD A ROUTE FOR DELETING USING METHOD OVERRIDE ON THE POST ROUTE for deleting a plant form the database (the delete buttton is on the 'ledger.ejs')
 
 
-
+// route.delete
+// .destroy
 
 
 
