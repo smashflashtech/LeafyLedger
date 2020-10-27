@@ -23,7 +23,11 @@
                     <form action="/cemetery/<%= plants[i].dataValues.id %>?_method=DELETE" method="POST">
                         <button type="submit" class="btn"> Remove </button>
                     </form>
-                    <button class='btn'> Resurrect </button>
+
+                    <form action="/cemetery/<%= plants[i].dataValues.id %>?_method=PUT" method="POST">
+                        <input hidden name="status" value="alive"> 
+                        <button type="submit" class="btn"> Resurrect </button>
+                    </form>
 
                 </li>
 
