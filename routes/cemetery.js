@@ -31,4 +31,16 @@ router.delete('/:id', isLoggedIn, function(req, res) {
     })
 })
 
+router.put('/:id', function(req, res) {
+    // console.log('MMMMMMMMMAAAAAGGGGGGGIIIIIICCCCCC', req.body.status)
+    // console.log("~~~~~~~~~~~~~~~~~~~~~", req.params.id) // THIS WORKS!
+    db.plant.update(
+        { status: req.body.status },
+        { where: { id: req.params.id }} 
+    ).then(
+        res.redirect('/ledger') // we decided to send them to the ledger because the user would most likely want to edit their plant once it's back in the ledger.
+    )
+})
+
+
 module.exports = router;
