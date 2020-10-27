@@ -11,7 +11,13 @@ router.use(methodOverride("_method"))
 //TO DO: GET /ledger - return a page with favorited plants
 //TO DO: - Get all records from the leafy_ledger database and render to view
 router.get("/", isLoggedIn, function(req, res) {
-    req.user.getPlants().then(function(alivePlants){
+  console.log("==============================")
+    req.user.getPlants({
+      where: {
+        status: "alive"
+      }
+    }
+    ).then(function(alivePlants){
     console.log(alivePlants)
     res.render("ledger", { plants: alivePlants})
   }) 
@@ -53,16 +59,19 @@ router.post('/', (req, res) => {
 })
 
 
-
-
-
-
 //TO DO: ADD A ROUTE FOR DELETING USING METHOD OVERRIDE ON THE POST ROUTE for deleting a plant form the database (the delete buttton is on the 'ledger.ejs')
 
-
-// route.delete
-// .destroy
-
+router.delete('/:id', isLoggedIn, function(req, res) {
+  db.plant.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(trashPlant){
+    // console.log('This is ~~~~~~~~~~~~~ ', trashPlant) //this works
+    req.user.removePlant(trashPlant)
+    res.redirect('/ledger')
+  })
+})
 
 
 
