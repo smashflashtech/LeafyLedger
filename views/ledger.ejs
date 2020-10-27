@@ -4,6 +4,8 @@
 
 <h3>THERE WILL BE A DELETE BUTTON USING A POST ROUTE AND METHOD OVERRIDE</h3>
 
+<% console.log("~~~~~~~~~~~~~~~~~", plants[0].dataValues.id) %>
+
 <section class="pdBody">
   <!-- Currently the backend is sending local data in a context object named 'plants' which is an array of objects -->
     <section class="pdPlantContainer">
@@ -18,32 +20,27 @@
               <h2 class ="pdName"><%= plants[i].common_name %></h2>
               <h3 class="pdSciName"><%= plants[i].scientific_name %></h3>
             </div>
-           
+          </div>
               
-                
+          
+          <input type="text" name="lastWatered">
               
-              <input type="text" name="lastWatered">
-              
-            <div class ="pdPlantDead"> 
+
+          <div class ="pdPlantDead"> 
             <!-- coming back to this -->
               <form method="POST" action="/cemetery">
                 <button class="dead" type="submit">☠️
                 </button> 
-              </form>  
-              
-                
-                
-                
-                
-                
-              <div class ="pdPlantTrashed">  
-                <form method="POST" action="/ledger/<%= plants[i].dataValues.id%>?_method=DELETE"%></form>>
-                    
-                <button type=submit class="trash" >🗑
-                </button>
-              </form>
-            </div>
-        </div>
+              </form> 
+          </div>      
+
+
+          <div class ="pdPlantTrashed">  
+            <form method="POST" action="/ledger/<%=plants[0].dataValues.id%>?_method=DELETE"%></form>   
+              <button type="submit" class="trash" >🗑
+              </button>
+            </form>
+          </div>
         </div>
     <% }; %>
     </section>
