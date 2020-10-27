@@ -81,3 +81,52 @@ h1 {
 }
 
 
+/* ~~~~~~~~~~~~~~~~ Cemetery Page ~~~~~~~~~~~~~~~~~~~  */
+
+.cemeteryPage {
+  background: saddlebrown;
+}
+
+.wordBlock {
+  background: seashell;
+  margin: 5px, 0, 0, 0;
+  opacity: 90%;
+  text-align: center;
+}
+
+.compostList {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.deadPlant {
+  background: rgba(255, 255, 255, 0.568);
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid black;
+  border-radius: 15px;
+  margin: 0px 50px 0px 0px;
+}
+
+.deadImg {
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+  border-style: ridge;
+}
+
+.deadCommon {
+  text-align: center;
+  padding: 3px;
+}
+
+.deadScientific {
+  text-align: center;
+  padding: 3px;
+}
+
+.btn {
+  margin: 2px;
+}
