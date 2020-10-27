@@ -101,4 +101,9 @@ router.put('/:id', function(req, res) {
 })
 
 
+
+// To DO: Add a route that changes status of plant to alive to dead 
+router.
+
+
 module.exports = router;
