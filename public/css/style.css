@@ -5,12 +5,17 @@ nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
-  margin: 0px 5px 0px 0px;
+  margin: 0px 5px 2px 0px;
+}
+
+header {
+  background: white;
 }
 
 h1 {
   color: rgb(192, 212, 171);
 }
+
 /* Index page */
 .iContainer{
   display:flex;
@@ -80,10 +85,9 @@ h1 {
   align-self: flex-end;
 }
 
-
 /* ~~~~~~~~~~~~~~~~ Cemetery Page ~~~~~~~~~~~~~~~~~~~  */
 
-.cemeteryPage {
+.cemeteryBackground {
   background: url(https://images.theconversation.com/files/275002/original/file-20190516-69195-1yg53ff.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop);
   background-attachment: fixed;
   background-size: 100%;
@@ -112,15 +116,18 @@ h1 {
 
 .compostList {
   list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
+  display: inline-grid;
   text-align: center;
   padding: 10px;
+  margin: 25px;
+}
+
+.listItems {
+  display: inline-grid;
 }
 
 .deadPlant {
     background: url(https://www.motosha.com/wp-content/uploads/worn-gray-concrete-stone-texture-1024x683.jpg);
-    /* background-size: 75px 150px; */
     height: 405px;
     width: 200px;
     border-radius: 60px 60px 5px 5px;
@@ -151,7 +158,7 @@ h1 {
 
 .btn {
   margin: 2px;
-  border: 1px solid lightgray;
+  border: 1px solid black;
 }
 
 .deadImg {
@@ -160,5 +167,8 @@ h1 {
   margin: 1px 0px 0px 2px;
   border-radius: 5px;
   border: 1px solid lightgray;
-  /* border-radius: 60px 60px 5px 5px; */
+  /* border-radius: 60px 60px 5px 5px; */  /* This is for if the image is sitting at the top of the container */
+  /* possibly grayscale out currently dead plants */
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~ Ledger ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
