@@ -87,7 +87,7 @@ router.get('/edit/:id', function (req, res) {
 })
 
 //UPDATE by PUT the new data for lastWatered into the database
-router.put('/:id', function(req, res) {
+router.put('/edit/:id', function(req, res) {
   //console.log('THIS IS RECK DAT BODY~~~~~~~~~~~~~~~~~~~', req.body.lastWatered) //GOT IT!
   //console.log('THIS IS RECK DAT PARAMs~~~~~~~~~~~~~~~~~~~', req.params)//plant id
   //we need to only edit plant for the specific user
@@ -98,6 +98,20 @@ router.put('/:id', function(req, res) {
   ).then(
     res.redirect('/ledger')
     )
+})
+
+
+
+// To DO: Add a route that changes status of plant to alive to dead 
+router.put('/:id', function(req,res){
+  console.log("~~~~~~~~~~~~~~~~~~~~", req.params.id)
+  console.log("~~~~~~~~WRECK THAT BODY~~~~~~~~~~~", req.body.status)
+  db.plant.update(
+    { status: req.body.status },
+    { where: {id: req.params.id}}
+  ).then(
+    res.redirect('/cemetery')
+  )
 })
 
 
