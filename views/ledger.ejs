@@ -31,8 +31,8 @@
               
 
           <div class ="pdPlantDead"> 
-            <!-- coming back to this -->
-              <form method="POST" action="/cemetery">
+              <form method="POST" action="/ledger/<%=plants[i].dataValues.id%>?_method=PUT">
+                <input hidden name="status" value="dead">
                 <button class="dead" type="submit">☠️
                 </button> 
               </form> 
