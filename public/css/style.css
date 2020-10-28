@@ -5,12 +5,17 @@ nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
-  margin: 0px 5px 0px 0px;
+  margin: 0px 5px 2px 0px;
+}
+
+header {
+  background: white;
 }
 
 h1 {
   color: rgb(192, 212, 171);
 }
+
 /* Index page */
 .iContainer{
   display:flex;
@@ -80,53 +85,90 @@ h1 {
   align-self: flex-end;
 }
 
-
 /* ~~~~~~~~~~~~~~~~ Cemetery Page ~~~~~~~~~~~~~~~~~~~  */
 
-.cemeteryPage {
-  background: saddlebrown;
+.cemeteryBackground {
+  background: url(https://images.theconversation.com/files/275002/original/file-20190516-69195-1yg53ff.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop);
+  background-attachment: fixed;
+  background-size: 100%;
+}
+
+.header {
+  background: seashell;
+  opacity: 75%;
+  border-radius: 10px;
 }
 
 .wordBlock {
-  background: seashell;
   margin: 5px, 0, 0, 0;
-  opacity: 90%;
+  padding: 6px;
   text-align: center;
+  border: 3px groove slategray;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
+
+.disclaimer {
+  font-size: 16px;
 }
 
 .compostList {
   list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
+  display: inline-grid;
   text-align: center;
+  padding: 10px;
+  margin: 25px;
+}
+
+.listItems {
+  display: inline-grid;
 }
 
 .deadPlant {
-  background: rgba(255, 255, 255, 0.568);
-  display: flex;
-  justify-content: space-between;
-  border: 3px solid black;
-  border-radius: 15px;
-  margin: 0px 50px 0px 0px;
-}
+    background: url(https://www.motosha.com/wp-content/uploads/worn-gray-concrete-stone-texture-1024x683.jpg);
+    height: 405px;
+    width: 200px;
+    border-radius: 60px 60px 5px 5px;
+    border: 3px groove lightgray;
+  }
 
-.deadImg {
-  width: 200px;
-  height: 250px;
-  border-radius: 5px;
-  border-style: ridge;
+.rip {
+  font-size: 18px;
+  padding: 0;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 0 black, 0 3px black, 3px 0 black, 0 3px black;
 }
 
 .deadCommon {
   text-align: center;
-  padding: 3px;
+  padding: 0px;
+  color: white;
+  text-shadow: 3px 0 black, 0 3px black, 3px 0 black, 0 3px black;
 }
 
 .deadScientific {
   text-align: center;
-  padding: 3px;
+  padding: 0 0 2px 0;
+  color: white;
+  text-shadow: 3px 0 black, 0 3px black, 3px 0 black, 0 3px black;
 }
 
 .btn {
   margin: 2px;
+  border: 1px solid black;
 }
+
+.deadImg {
+  width: 187px;
+  height: 230px;
+  margin: 1px 0px 0px 2px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  /* border-radius: 60px 60px 5px 5px; */  /* This is for if the image is sitting at the top of the container */
+  /* possibly grayscale out currently dead plants */
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~ Ledger ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
