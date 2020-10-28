@@ -26,7 +26,7 @@ router.get("/", isLoggedIn, function(req, res) {
 
 //ROUTE to POST NEW PLANT to DB and JOIN User and PLANT
 router.post('/', (req, res) => {
-  //console.log("This is IT: ", req.body)
+  console.log("This is IT: ", req.body)
   db.user.findOrCreate({
     where: { id: parseInt(req.body.userId) }
   }).then(function ([returnedUser, created]) {
