@@ -1,38 +1,42 @@
-<section class='cemeteryPage'>
-    <div class='wordBlock'>
-        <h2 class='cTitle'>Welcome to your Compost Bin!</h2>
+<body class='cemeteryPage'>
+    <div class='header'>
+        <div class='wordBlock'>
+            <h2 class='cTitle'>Welcome to your Compost Bin!</h2>
 
-        <h3>Below are your plants who are regrettably no longer with us.</h3>
+            <h3>Below are your plants who are regrettably no longer with us.</h3>
 
-        <p>This does not insinuate that you are a bad plant mom or dad, 
-            but rather plants are hard to keep alive sometimes. We understand - you will receive no judgment here!
-        </p>
+            <div class='disclaimer'>
+                <p>This does not insinuate that you are a bad plant mom or dad, 
+                    but rather plants are hard to keep alive sometimes. We understand - no judgment here!
+                </p>
 
-        <p>For information on composting, please visit <a href='https://www.epa.gov/recycle/composting-home'>this website</a>. </p>
-    </div>    
-
-        <% for (let i=0; i < plants.length; i++) { %>
-        <ul class='compostList'>
-            <div class='deadPlant'>
-
-                <li>
-
-                    <img class='deadImg' src="<%= plants[i].dataValues.image_url %>">
-                    <div class='deadCommon'><%= plants[i].dataValues.common_name %></div>
-                    <div class='deadScientific'><%= plants[i].dataValues.scientific_name %></div>
-                    <form action="/cemetery/<%= plants[i].dataValues.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn"> Remove </button>
-                    </form>
-
-                    <form action="/cemetery/<%= plants[i].dataValues.id %>?_method=PUT" method="POST">
-                        <input hidden name="status" value="alive"> 
-                        <button type="submit" class="btn"> Resurrect </button>
-                    </form>
-
-                </li>
-
+                <p>For information on composting, please visit <a href='https://www.epa.gov/recycle/composting-home'>this website</a>. </p>
             </div>
+        </div>    
+    </div>
 
-        </ul>
-        <% } %> 
-</section>
+    <% for (let i=0; i < plants.length; i++) { %>
+    <ul class='compostList'>
+        <div class='deadPlant'>
+                
+            <li>
+                    
+                <h3 class='rip'> Here Lies</h3>
+                <div class='deadCommon'><%= plants[i].dataValues.common_name %></div>
+                <div class='deadScientific'><%= plants[i].dataValues.scientific_name %></div>
+                <form action="/cemetery/<%= plants[i].dataValues.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn"> Remove </button>
+                </form>
+
+                <form action="/cemetery/<%= plants[i].dataValues.id %>?_method=PUT" method="POST">
+                    <input hidden name="status" value="alive"> 
+                    <button type="submit" class="btn"> Resurrect </button>
+                </form>
+                <img class='deadImg' src="<%= plants[i].dataValues.image_url %>">
+            </li>
+                
+        </div>
+
+    </ul>
+    <% } %> 
+</body>
