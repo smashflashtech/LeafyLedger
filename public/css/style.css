@@ -12,10 +12,6 @@ header {
   background: white;
 }
 
-h1 {
-  color: rgb(192, 212, 171);
-}
-
 /* Index page */
 .iContainer{
   display:flex;
@@ -39,12 +35,14 @@ h1 {
 .pdHeading {
   text-align: center;
   font-family: 'Rock Salt', cursive;
+  color: rgb(192, 212, 171);
 }
 
 .pdPlantContainer {
   margin: 0px 50px;
-  padding: 25px 0px; 
+  padding: 25px 0px;
 }
+
 
 .well {
   background: rgba(255, 255, 255, 0.568);
@@ -110,6 +108,10 @@ h1 {
   color: black;
 }
 
+.cBlurb {
+  margin: 0px 50px;
+}
+
 .disclaimer {
   font-size: 16px;
 }
@@ -127,8 +129,8 @@ h1 {
 }
 
 .deadPlant {
-    background: url(https://www.motosha.com/wp-content/uploads/worn-gray-concrete-stone-texture-1024x683.jpg);
-    height: 405px;
+    background: url(https://i.imgur.com/6QJqIeQ.jpg?1);
+    height: 410px;
     width: 200px;
     border-radius: 60px 60px 5px 5px;
     border: 3px groove lightgray;
@@ -143,6 +145,7 @@ h1 {
 }
 
 .deadCommon {
+  font-size: 16px;
   text-align: center;
   padding: 0px;
   color: white;
@@ -150,9 +153,11 @@ h1 {
 }
 
 .deadScientific {
+  font-style: italic;
+  font-size: 12px;
   text-align: center;
-  padding: 0 0 2px 0;
-  color: white;
+  padding: 0px 0px 2px 0px;
+  color: rgb(196, 196, 196);
   text-shadow: 3px 0 black, 0 3px black, 3px 0 black, 0 3px black;
 }
 
@@ -166,9 +171,94 @@ h1 {
   height: 230px;
   margin: 1px 0px 0px 2px;
   border-radius: 5px;
-  border: 1px solid lightgray;
-  /* border-radius: 60px 60px 5px 5px; */  /* This is for if the image is sitting at the top of the container */
+  border: 1px solid lightgrey;
   /* possibly grayscale out currently dead plants */
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~ Ledger ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.lHeading{
+  color: rgba(36, 124, 33, 0.678);
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+}
+
+.lbody{
+  background: url(https://www.lefthudson.com/wp-content/uploads/2019/11/lined-paper-backgrounds-unique-lined-paper-texture-background-powerpoint-new-graphicpanic-ideas-of-lined-paper-backgrounds.jpg);
+  width: 100%;
+}
+
+.font {
+  font-family: 'Rock Salt', cursive;
+}
+
+.emphasis {
+  font-weight: bold;
+}
+
+.lBlurb-container{
+  background-color: rgba(255, 255, 255, 0.356);
+}
+
+.firstLetter {
+  font-family: 'Rock Salt', cursive;
+  font-size: 2em;
+}
+
+.lBlurb {
+  font-family: 'Rock Salt', cursive;
+  margin: 0px;
+  padding: 5px 20px;
+}
+.lContainer {
+  margin: 0px 0px 0px 50px;
+}
+
+
+.lPlantDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lName{
+  font-family: 'Rock Salt', cursive;
+  color: rgba(207, 100, 0, 0.685);
+}
+
+.lSciName{
+  color: rgb(8, 0, 114);
+  font-style: italic;
+  margin: -7px 0px 0px 0px;
+}
+
+.watered {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.lLastWatered {
+  font-size: 16px;
+}
+
+.ledit{
+  font-size: 12px;
+}
+
+
+.lButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lButton-skull {
+  height: 50px;
+}
+
+.dead{
+  margin: 0px 15px 0px 0px;
+}
+
+.lButton-trash {
+  height: 50px;
+
+}

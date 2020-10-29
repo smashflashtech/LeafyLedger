@@ -30,7 +30,7 @@ The goal of this collaboration was to create an user-friendly application that w
 ## ERD, Wireframe, & User Stories
 
 ![ERD](images/erd_p2_leafyledger.png)
-![Wireframe](images/wireframe_p2-leafyledger.png)
+![Wireframe](images/wireframe_p2_leafyledger.png)
 
 *	As a user I want to log in via email and password to access my Leafy Ledger.
 *	As a user I will browse the catalogue of plants on the main page that displays content from the Trefle.io API.
@@ -41,8 +41,6 @@ The goal of this collaboration was to create an user-friendly application that w
 *	AS a user, I can also view additional fun facts about the plants I favorited from my ledger.
 
 ## Future Development
-
-![ERD-FutureDevelopment](images/erd_p2_leafyledger-fd.png)
 
 * In the future the the dead plant button function will change to toggle true/false for dead attribute on server database. Deadplants will be grayscaled and user can view past plants in their dead plant cemetery.
 *	From the ledger, the user will be able to click on a calendar icon to view the cumulative history of waterlogs.
