@@ -24,7 +24,16 @@ The goal of this collaboration was to create an user-friendly application that w
 *Sequelize
 
 
-##### Screenshot(s) (optional)
+##### Screenshot(s) 
+![Index](images/leafyledger-index.png)
+![Signup](images/leafyledger-signup.png)
+![Login](images/leafyledger-login.png)
+![Plant Directory](images/leafyledger-pd.png)
+![Plant Detail](images/leafyledger-d-sn.png)
+![Plant Detail](images/leafyledger-d-cb.png)
+![Ledger](images/leafyledger-l.png)
+![Cemetery](images/leafyledger-c.png)
+![Logout](images/leafyledger-logout.png)
 
 
 ## ERD, Wireframe, & User Stories
