@@ -23,8 +23,12 @@ header {
   font-family: 'Rock Salt', cursive;
   font-size: 40px;
   color: rgb(192, 212, 171);
+  margin: 20px 0px 0px 0px;
 }
 
+.iBlurb{
+  margin: 15px 50px 0px 50px;
+}
 /* CSS for Plants Directory */
 
 .pdBody {
