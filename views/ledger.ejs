@@ -5,35 +5,35 @@
     <p class="lBlurb"><span class="firstLetter">W</span>elcome to your ledger. This is where you can find the plants you saved. If you currently own the plant you can keep track of when you last watered it by clicking the edit button. If you added the plan by mistake or you no longer own the plant, you can throw it in the trash. If your plant has died, you can send it to the compost bin so you can visit for all of time.</p>
   </div>
     <section class="pdPlantContainer">
-    <% for (let i = 0; i < plants.length; i++) { %>
+    <% plants.forEach(plant=> {%>
         <div class="well">
           <div class="pdPlantPic">
-            <img class="pdThumb well well-sm" alt="<%= plants[i].common_name %>" src="<%= plants[i].image_url %>">
+            <img class="pdThumb well well-sm" alt="<%= plant.common_name %>" src="<%= plant.image_url %>">
           </div>
           <div class="lPlantDetails">
             <div class="pdPlantNames">
-              <h2 class ="lName"><%= plants[i].common_name %></h2>
-              <h3 class="lSciName"><%= plants[i].scientific_name %></h3>
+              <h2 class ="lName"><%= plant.common_name %></h2>
+              <h3 class="lSciName"><%= plant.scientific_name %></h3>
             </div>
 
               <div class="watered">
-                <p class="lLastWatered"><span class="emphasis">Last Watered: </span><%= plants[i].dataValues.lastWatered %><span class="ledit"><a href="/ledger/edit/<%= plants[i].dataValues.id %>"> Edit</a></span></p>
+                <p class="lLastWatered"><span class="emphasis">Last Watered: </span><%= plant.dataValues.lastWatered %><span class="ledit"><a href="/ledger/edit/<%= plant.dataValues.id %>"> Edit</a></span></p>
               </div>
 
               <div class ="lButtons"> 
-                  <form method="POST" action="/ledger/<%=plants[i].dataValues.id%>?_method=PUT">
+                  <form method="POST" action="/ledger/<%=plant.dataValues.id%>?_method=PUT">
                     <input hidden name="status" value="dead">
                     <button class="dead" type="submit"><img class="lButton-skull" src="img/icons8-skull-and-crossbones-96.png">
                     </button> 
                   </form>  
-                <form method="POST" action="/ledger/<%=plants[i].dataValues.id%>?_method=DELETE"%></form>   
+                <form method="POST" action="/ledger/<%=plant.dataValues.id%>?_method=DELETE"%></form>   
                   <button type="submit" class="trash" ><img class="lButton-trash" src="img/icons8-wastebasket-96.png">
                   </button>
                 </form>
               </div>
           </div>
         </div>
-    <% }; %>
+    <% }) %>
     </section>
     <footer>
       <a href="https://icons8.com/">Icons8</a>

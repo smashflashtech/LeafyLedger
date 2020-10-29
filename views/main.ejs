@@ -1,33 +1,33 @@
 <h1 class="pdHeading">Plant Directory</h1>
 
-<!-- NOTE: Syntax to use API data is apiPlants[i].KEYYOUWANTTOACCESS -->
-<!-- NOTE: Syntax to use local JSON data is plants[i].KEYYOUWANTTOACCESS -->
+<!-- NOTE: API data is in an array called apiPlants -->
+<!-- NOTE: Local JSON data is in an array called plants  -->
 <section class="pdBody">
   <section class="pdPlantContainer">
-    <% for (let i = 0; i < apiPlants.length; i++) { %>
-        <div class="well" href="<%=`/details/${apiPlants[i].id}`%>">
+    <% apiPlants.forEach(apiPlant => { %>
+        <div class="well" href="<%=`/details/${apiPlant.id}`%>">
           <div class="pdPlantPic">
-            <img class="pdThumb well well-sm" alt="<%= apiPlants[i].common_name %>" src="<%= apiPlants[i].image_url %>">
+            <img class="pdThumb well well-sm" alt="<%= apiPlant.common_name %>" src="<%= apiPlant.image_url %>">
           </div>
           <div class="pdPlantDetails">
             <div class="pdPlantNames">
-              <h2 class ="pdName"><%= apiPlants[i].common_name %></h2>
-              <h3 class="pdSciName"><%= apiPlants[i].scientific_name %></h3>
+              <h2 class ="pdName"><%= apiPlant.common_name %></h2>
+              <h3 class="pdSciName"><%= apiPlant.scientific_name %></h3>
             </div>
             <div class ="pdPlantSave">
               <form method="POST" action="/ledger" class="pdForm">
-                <input hidden type="text" name="common_name" value="<%= apiPlants[i].common_name %>">
-                <input hidden type="text" name="scientific_name" value="<%= apiPlants[i].scientific_name %>">
+                <input hidden type="text" name="common_name" value="<%= apiPlant.common_name %>">
+                <input hidden type="text" name="scientific_name" value="<%= apiPlant.scientific_name %>">
                 <input hidden type="text" name="lastWatered" value="MM/DD/YYYY">
                 <input hidden type="text" name="status" value="alive">
-                <input hidden type="text" name="image_url" value="<%= apiPlants[i].image_url %>">
-                <input hidden type="text" name="apiId" value="<%= apiPlants[i].id %>">
+                <input hidden type="text" name="image_url" value="<%= apiPlant.image_url %>">
+                <input hidden type="text" name="apiId" value="<%= apiPlant.id %>">
                 <input hidden type="text" name="userId" value="<%= currentUser.id %>"> 
                 <button class="btn btn-success" type="submit">Save to Ledger ✍️</button> 
                 </form>
             </div>
         </div>
         </div>
-    <% }; %>
+    <% }) %>
   </section>
 </section>
