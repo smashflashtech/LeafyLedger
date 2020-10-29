@@ -18,7 +18,7 @@
               <form method="POST" action="/ledger" class="pdForm">
                 <input hidden type="text" name="common_name" value="<%= apiPlants[i].common_name %>">
                 <input hidden type="text" name="scientific_name" value="<%= apiPlants[i].scientific_name %>">
-                <input hidden type="text" name="lastWatered" value="">
+                <input hidden type="text" name="lastWatered" value="MM/DD/YYYY">
                 <input hidden type="text" name="status" value="alive">
                 <input hidden type="text" name="image_url" value="<%= apiPlants[i].image_url %>">
                 <input hidden type="text" name="apiId" value="<%= apiPlants[i].id %>">
