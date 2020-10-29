@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
 router.use(methodOverride('_method'))
 
 //ROUTE to GET plants with status dead specific to this user and display on cemetary page
-router.get('/', isLoggedIn, function(req,res) {
+router.get('/', isLoggedIn, (req,res) => {
     req.user.getPlants({
         where: {
             status: 'dead',
@@ -19,17 +19,17 @@ router.get('/', isLoggedIn, function(req,res) {
 })
 
 //ROUTE - route uses parameter (when remove button is clicked) from URL pattern to delete a plant from the database
-router.delete('/:id', isLoggedIn, function(req, res) {
+router.delete('/:id', isLoggedIn, (req, res) => {
     db.plant.findOne({
         where: { id: req.params.id }
-    }).then(function(deadPlant){
+    }).then((deadPlant) => {
         req.user.removePlant(deadPlant)
         res.redirect('/cemetery') 
     })
 })
 
 //ROUTER that uses parameter (when resurrect button is clicked) from URL pattern to edit status and change to 'alive'
-router.put('/:id', function(req, res) {
+router.put('/:id', (req, res) => {
     db.plant.update(
         { status: req.body.status },
         { where: { id: req.params.id }} 
