@@ -37,8 +37,11 @@ The goal of this collaboration was to create an user-friendly application that w
 *	From the main page I will be able to add plants to my ledger, click on plants to view more details about plants, and navigate to my ledger.
 *	From the details page, I will be able to favorite plants I am currently viewing or navigate back to main page or my ledger.
 *	I will access my ledger to view or delete favorited plants.
-*	For plants that I own, I can add and update information about when I last watered my plants and the soil type I used in my ledger.
-*	AS a user, I can also view additional fun facts about the plants I favorited from my ledger.
+* If plants die, I can send them to my compost bin (plant cemetery).
+* From the compost bin, I can sent my plants to hell (delete the association) or I can ressurect them in the event that they serendipitously come back to life.
+*	For plants that I own, I can add and update information about when I last watered my plants.
+*	As a user, I can also view additional fun facts about the plants I favorited from my ledger.
+* As a user, I can also
 
 ## Future Development
 

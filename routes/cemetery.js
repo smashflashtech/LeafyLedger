@@ -3,10 +3,11 @@ const router = express.Router();
 const axios = require('axios')
 const db = require('../models')
 const isLoggedIn = require('../middleware/isLoggedIn')
-const methodOverride = require('method-override') // npm install method-override // refactor?
+const methodOverride = require('method-override') 
 
 router.use(methodOverride('_method'))
 
+//ROUTE to GET plants with status dead specific to this user and display on cemetary page
 router.get('/', isLoggedIn, function(req,res) {
     req.user.getPlants({
         where: {
@@ -17,28 +18,23 @@ router.get('/', isLoggedIn, function(req,res) {
     })
 })
 
+//ROUTE - route uses parameter (when remove button is clicked) from URL pattern to delete a plant from the database
 router.delete('/:id', isLoggedIn, function(req, res) {
-    //console.log(req.params) // plant id
-    //console.log(req.user)
-    //FIND THE PLANT GOING TO HELL (DELETED) USING REQ.PARAMS.ID
     db.plant.findOne({
         where: { id: req.params.id }
     }).then(function(deadPlant){
-        //console.log("THIS IS THE PLANT: ", deadPlant)//this works
-        //THEN USE req.user.removePlant(plant) TO DELETE THE ASSOCIATION FROM THE JOIN TABLE
         req.user.removePlant(deadPlant)
-        res.redirect('/cemetery') //DELETE IS WORKING
+        res.redirect('/cemetery') 
     })
 })
 
+//ROUTER that uses parameter (when resurrect button is clicked) from URL pattern to edit status and change to 'alive'
 router.put('/:id', function(req, res) {
-    // console.log('MMMMMMMMMAAAAAGGGGGGGIIIIIICCCCCC', req.body.status)
-    // console.log("~~~~~~~~~~~~~~~~~~~~~", req.params.id) // THIS WORKS!
     db.plant.update(
         { status: req.body.status },
         { where: { id: req.params.id }} 
     ).then(
-        res.redirect('/ledger') // we decided to send them to the ledger because the user would most likely want to edit their plant once it's back in the ledger.
+        res.redirect('/ledger') 
     )
 })
 
