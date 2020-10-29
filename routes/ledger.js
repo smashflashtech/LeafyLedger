@@ -9,13 +9,13 @@ const methodOverride = require("method-override")
 router.use(methodOverride("_method"))
 
 //ROUTE to GET alive plants specific to user and display them on the ledger page
-router.get("/", isLoggedIn, function(req, res) {
+router.get("/", isLoggedIn, (req, res) => {
     req.user.getPlants({
       where: {
         status: "alive"
       }
     }
-    ).then(function(alivePlants){
+    ).then((alivePlants) => {
     res.render("ledger", { plants: alivePlants})
   }) 
 })
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
   console.log("This is IT: ", req.body)
   db.user.findOrCreate({
     where: { id: parseInt(req.body.userId) }
-  }).then(function ([returnedUser, created]) {
+  }).then(([returnedUser, created]) => {
     db.plant.create(
       {
         common_name: req.body.common_name,
@@ -36,8 +36,8 @@ router.post('/', (req, res) => {
         lastWatered: req.body.lastWatered,
         status: req.body.status,
       }
-  ).then(function (newPlant) {
-    returnedUser.addPlant(newPlant.dataValues.id).then(function(userInfo) {
+  ).then((newPlant) => {
+    returnedUser.addPlant(newPlant.dataValues.id).then((userInfo) => {
     })
   })
 })
@@ -51,12 +51,12 @@ router.post('/', (req, res) => {
 
 
 //ROUTE that uses parameter from the URL pattern (when the trash button is clicked) to delete the plant association with user
-router.delete('/:id', isLoggedIn, function(req, res) {
+router.delete('/:id', isLoggedIn, (req, res) => {
   db.plant.findOne({
     where: {
       id: req.params.id
     }
-  }).then(function(trashPlant){
+  }).then((trashPlant) => {
     req.user.removePlant(trashPlant)
     res.redirect('/ledger')
   })
@@ -64,18 +64,18 @@ router.delete('/:id', isLoggedIn, function(req, res) {
 
 
 //ROUTE to GET specific plant using parameter from the database to edit the lastWater date
-router.get('/edit/:id', function (req, res) {
+router.get('/edit/:id', (req, res) => {
   db.plant.findOne({
     where: {
       id: req.params.id
     }
-  }).then(function(foundPlant){
+  }).then((foundPlant) => {
     res.render('edit', {editPlant: foundPlant})
     })
 })
 
 //UPDATE by PUT the new data for lastWatered into the database
-router.put('/edit/:id', function(req, res) {
+router.put('/edit/:id', (req, res) => {
   db.plant.update(
     { lastWatered: req.body.lastWatered },
     { where: {id: req.params.id }}
@@ -87,9 +87,7 @@ router.put('/edit/:id', function(req, res) {
 
 
 //ROUTE that changes status of plant to alive to dead 
-router.put('/:id', function(req,res){
-  console.log("~~~~~~~~~~~~~~~~~~~~", req.params.id)
-  console.log("~~~~~~~~WRECK THAT BODY~~~~~~~~~~~", req.body.status)
+router.put('/:id', (req,res) => {
   db.plant.update(
     { status: req.body.status },
     { where: {id: req.params.id}}
