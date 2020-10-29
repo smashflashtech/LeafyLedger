@@ -63,4 +63,3 @@ The goal of this collaboration was to create an user-friendly application that w
 
 
 
-
