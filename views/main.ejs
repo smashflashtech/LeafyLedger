@@ -15,7 +15,7 @@
               <h3 class="pdSciName"><%= apiPlant.scientific_name %></h3>
             </div>
             <div class ="pdPlantSave">
-              <form method="GET" action="/details/" class="pdForm">
+              <form method="GET" action="/details/search" class="pdForm">
                 <input hidden type="text" name="common_name" value="<%= apiPlant.common_name %>">
                 <button class="btn btn-success" type="submit">View Details 📙</button> 
               </form>
