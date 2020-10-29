@@ -8,17 +8,14 @@ const methodOverride = require("method-override")
 
 router.use(methodOverride("_method"))
 
-//TO DO: GET /ledger - return a page with favorited plants
-//TO DO: - Get all records from the leafy_ledger database and render to view
+//ROUTE to GET alive plants specific to user and display them on the ledger page
 router.get("/", isLoggedIn, function(req, res) {
-  console.log("==============================")
     req.user.getPlants({
       where: {
         status: "alive"
       }
     }
     ).then(function(alivePlants){
-    //console.log(alivePlants)
     res.render("ledger", { plants: alivePlants})
   }) 
 })
@@ -30,7 +27,6 @@ router.post('/', (req, res) => {
   db.user.findOrCreate({
     where: { id: parseInt(req.body.userId) }
   }).then(function ([returnedUser, created]) {
-    // console.log("THIS IS THE USER~~~~~~~~~", returnedUser.name, created)
     db.plant.create(
       {
         common_name: req.body.common_name,
@@ -39,44 +35,36 @@ router.post('/', (req, res) => {
         apiId: req.body.apiId,
         lastWatered: req.body.lastWatered,
         status: req.body.status,
-      }                                   ///ATTENTION: this is working we are happy with this// add to the database
+      }
   ).then(function (newPlant) {
-    // console.log("YOU HAVE ARRIVE!!!!!!!!!)")
-    //console.log("NEW PLANT:", newPlant.dataValues)
-    // console.log("RETURNED USER:", returnedUser.name)
     returnedUser.addPlant(newPlant.dataValues.id).then(function(userInfo) {
-    //console.log(newPlant.dataValues.common_name, "WAS CREATED~~~~~~~~~~~** and added to", returnedUser)
     })
   })
 })
   .then((returnedUser) => {
-    res.redirect('/ledger')                                 //promises to redirect back to the ledger
+    res.redirect('/ledger')                                 
   })
-    .catch((error) => {                                 //displays error if one occurs 
-      //console.log(error)
+    .catch((error) => {
       res.status(400).render('404')
     })
 })
 
 
-//TO DO: ADD A ROUTE FOR DELETING USING METHOD OVERRIDE ON THE POST ROUTE for deleting a plant form the database (the delete buttton is on the 'ledger.ejs')
-
+//ROUTE that uses parameter from the URL pattern (when the trash button is clicked) to delete the plant association with user
 router.delete('/:id', isLoggedIn, function(req, res) {
   db.plant.findOne({
     where: {
       id: req.params.id
     }
   }).then(function(trashPlant){
-    // console.log('This is ~~~~~~~~~~~~~ ', trashPlant) //this works
     req.user.removePlant(trashPlant)
     res.redirect('/ledger')
   })
 })
 
 
-//ROUTE for GET page for EDITTING specific plant water
+//ROUTE to GET specific plant using parameter from the database to edit the lastWater date
 router.get('/edit/:id', function (req, res) {
-  //console.log("~~~~~~~~~~~~~NINJA UNITE", req.params)
   db.plant.findOne({
     where: {
       id: req.params.id
@@ -88,10 +76,6 @@ router.get('/edit/:id', function (req, res) {
 
 //UPDATE by PUT the new data for lastWatered into the database
 router.put('/edit/:id', function(req, res) {
-  //console.log('THIS IS RECK DAT BODY~~~~~~~~~~~~~~~~~~~', req.body.lastWatered) //GOT IT!
-  //console.log('THIS IS RECK DAT PARAMs~~~~~~~~~~~~~~~~~~~', req.params)//plant id
-  //we need to only edit plant for the specific user
-  //it doesnt matter who the user is because now plant IDs are Unique to their user--because now we have a many to many relationship
   db.plant.update(
     { lastWatered: req.body.lastWatered },
     { where: {id: req.params.id }}
@@ -102,7 +86,7 @@ router.put('/edit/:id', function(req, res) {
 
 
 
-// To DO: Add a route that changes status of plant to alive to dead 
+//ROUTE that changes status of plant to alive to dead 
 router.put('/:id', function(req,res){
   console.log("~~~~~~~~~~~~~~~~~~~~", req.params.id)
   console.log("~~~~~~~~WRECK THAT BODY~~~~~~~~~~~", req.body.status)
