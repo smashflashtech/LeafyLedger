@@ -3,8 +3,7 @@ const express = require('express');   // - express
 const db = require('../models')     // - DB
 const router = express.Router();      // - express router
 const isLoggedIn = require('../middleware/isLoggedIn');
-// - method override
-const methodOverride = require("method-override")
+const methodOverride = require("method-override") // - method override
 
 router.use(methodOverride("_method"))
 

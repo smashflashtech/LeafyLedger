@@ -1,14 +1,30 @@
-<h2>Plants Details</h2>
-<!--  a route should have queryed the API database by ID or NAME for a specific plant, a context object should have been packaged and sent from the backend -->
-<!-- probably involves using a params from the URL pattern -->
+<h1 class="pdHeading"><%= foundPlant.data[0].common_name %></h1>
+<h3 class="dSciName"><%= foundPlant.data[0].scientific_name %></h3>
+<section class="pdBody">
+  <section class="dContainer">
+    <div class="well">
+      <div class="well well-sm">
+        <img class="dImage" src="<%= foundPlant.data[0].image_url%> " alt="<%= foundPlant.data[0].common_name %>">
+      </div>
 
-<!-- THESE THREE PIECES OF INFO WE NEED FOR THE FORM -->
-<!-- Add alligator tags to display scientific name -->
-<!-- Add alligator tags to display scientific name -->
-<!-- Add alligator tags to display picture -->
-
-<!-- needs to include hidden form data using the POST method that stores information about the 
-name, scientificName, lastWatered(empty), pictureURL, and API index integer; the submit button will be the heart emoji...info will
-be sent to the backend to save it to the database -->
-
-<!-- Add alligator tags for any other details we want to display -->
+      <div class="dDetails">
+        <p><span class="font emphasis dKey">Common Name: </span><%= foundPlant.data[0].common_name %></p>
+        <p><span class="font emphasis dKey">Scientific Name: </span> <%= foundPlant.data[0].scientific_name %></p>
+        <p><span class="font emphasis dKey">Year First Recognized: </span><%= foundPlant.data[0].year %> </p>
+        <p><span class="font emphasis dKey">Family Common Name: </span><%= foundPlant.data[0].family_common_name %></p>
+        <p><span class="font emphasis dKey">Genus: </span><%= foundPlant.data[0].genus %></p>
+        <p><span class="font emphasis dKey">Family: </span><%= foundPlant.data[0].family %></p>
+        <form method="POST" action="/ledger" class="pdForm">
+          <input hidden type="text" name="common_name" value="<%= foundPlant.data[0].common_name %>">
+          <input hidden type="text" name="scientific_name" value="<%= foundPlant.data[0].scientific_name %>">
+          <input hidden type="text" name="lastWatered" value="MM/DD/YYYY">
+          <input hidden type="text" name="status" value="alive">
+          <input hidden type="text" name="image_url" value="<%= foundPlant.data[0].image_url %>">
+          <input hidden type="text" name="apiId" value="<%= foundPlant.data[0].id %>">
+          <input hidden type="text" name="userId" value="<%= currentUser.id %>"> 
+          <button class="btn btn-success" type="submit">Save to Ledger ✍️</button>
+        </form>    
+      </div>
+    </div>
+  </section>
+</section>
