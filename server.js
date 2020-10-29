@@ -13,6 +13,7 @@ const app = express();
 
 
 //~~~~~~~~~~~~~~~~~~~~MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
@@ -21,28 +22,27 @@ app.use(express.static(__dirname + '/public'));
 app.use(layouts);
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,                                       //session_secret is a pizza variable name
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
 }))
-//                                                                          //*********SESSION SHOULD ALWAYS BE ABOVE THESE LINES OF CODE below */
+
 app.use(flash())
 
-//                                                                          //*********SESSION SHOULD ALWAYS BE ABOVE THESE LINES OF CODE below */
+
 app.use(passport.initialize())
 app.use(passport.session())
 
 app.use((req, res, next) => {
-// before every route, attach the flash messages and current user to res.locals
-  res.locals.alerts = req.flash();                                          //req.flash is added by the two middleware we place above
-  res.locals.currentUser = req.user;                                        //this user property is added to each request by session and passport
-  next();                                                                   //next is a function that will make sure the user is push through to the next route
+  res.locals.alerts = req.flash();                                          
+  res.locals.currentUser = req.user;                                        
+  next();                                                                   
 });
 
 //~~~~~~~~~~~~~~~~~~~~ROUTES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-app.get('/', (req, res) => {                                                //this is rendering the login page (views/index.ejs inside the template layout.ejs)
-  res.render('index');                                                      //layout.ejs determines whether or not a signup/login is displayed or lougout/profile is displayed
+app.get('/', (req, res) => {                                                
+  res.render('index');                                                     
 });
 
 
@@ -53,29 +53,25 @@ app.get('/', (req, res) => {                                                //th
 //   res.render('main', {plants: twentyPlants})
 // })
 
-//PRIORITIZE THIS
-// // --This code was accessing the API, API is down--
-app.get('/main', isLoggedIn, (req, res) => {                                //this is rendering the profile page (views/profile.ejs)
-  //console.log("Whats up my ninjas")
-  const plantApiUrl=`http://trefle.io/api/v1/plants?token=${process.env.TREFLE_API_KEY}` //use a request to call the API
+//ROUTE FOR USE TO POPULATE CONTENT USING API (trefle.io)
+app.get('/main', isLoggedIn, (req, res) => {                                
+  const plantApiUrl=`http://trefle.io/api/v1/plants?token=${process.env.TREFLE_API_KEY}` 
     axios.get(plantApiUrl).then(function(apiResponse){
-//      console.log(apiResponse.data.links)// bookmarking this data for later in case it has to do with pagination      
-//      console.log(apiResponse.data.data)
-//      console.log(apiResponse.data.data.length)         //this array returns 20 plants...seems like JS might be able to get away without json parsing
-      const plants = apiResponse.data.data               //store desired API repsonse data in in a variable
-      res.render('main', {apiPlants: plants})       //res.render to the 'main' page with a context variable that contains API data - API has its own limiter and uses pagination.. need to read the pagination docs to get more plants
+      const plants = apiResponse.data.data               
+      res.render('main', {apiPlants: plants})       
     })
 })
 
 
-//API STUFF// TO DO: GET route by params to query the API for info on one plant and send to the details.ejs
+//~~~~~~~~~~~~~~~~~~~~IMPORTED ROUTES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-
-//~~~~~~~~~~~~~~~~~~~~ROUTES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 app.use('/auth', require('./routes/auth'));
-//TO DO: ADD IMPORT FOR NEW ROUTES
 app.use('/ledger', require('./routes/ledger'))
 app.use('/cemetery', require('./routes/cemetery'))
+app.use('/details', require('./routes/details'))
+
+
+//~~~~~~~~~~~~~~~~~~~~LISTENING ON...~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 var server = app.listen(process.env.PORT || 1031, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 1031}🎧`));
 
