@@ -43,8 +43,9 @@ h1 {
 
 .pdPlantContainer {
   margin: 0px 50px;
-  padding: 25px 0px; 
+  padding: 25px 0px;
 }
+
 
 .well {
   background: rgba(255, 255, 255, 0.568);
@@ -127,7 +128,8 @@ h1 {
 }
 
 .deadPlant {
-    background: url(https://www.motosha.com/wp-content/uploads/worn-gray-concrete-stone-texture-1024x683.jpg);
+    background: url(https://i.imgur.com/6QJqIeQ.jpg?1);
+    /* background-color: rgba(128, 128, 128, 0.75); */
     height: 405px;
     width: 200px;
     border-radius: 60px 60px 5px 5px;
@@ -166,9 +168,70 @@ h1 {
   height: 230px;
   margin: 1px 0px 0px 2px;
   border-radius: 5px;
-  border: 1px solid lightgray;
+  border: 1px solid lightgrey;
   /* border-radius: 60px 60px 5px 5px; */  /* This is for if the image is sitting at the top of the container */
   /* possibly grayscale out currently dead plants */
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~ Ledger ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.font {
+  font-family: 'Rock Salt', cursive;
+}
+
+.emphasis {
+  font-weight: bold;
+}
+
+.lBlurb-container{
+  /* border: 1px solid green; */
+  background-color: rgba(255, 255, 255, 0.356);
+}
+
+.firstLetter {
+  font-family: 'Rock Salt', cursive;
+  font-size: 2em;
+}
+
+.lBlurb {
+  font-family: 'Rock Salt', cursive;
+  margin: 0px;
+  padding: 5px 20px;
+}
+
+.lPlantDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.watered {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.lLastWatered {
+  font-size: 16px;
+}
+
+.ledit{
+  font-size: 12px;
+}
+
+
+.lButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lButton-skull {
+  height: 50px;
+}
+
+.dead{
+  margin: 0px 15px 0px 0px;
+}
+
+.lButton-trash {
+  height: 50px;
+
+}
