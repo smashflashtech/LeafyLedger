@@ -37,15 +37,14 @@ router.post('/', (req, res) => {
       }
   ).then((newPlant) => {
     returnedUser.addPlant(newPlant.dataValues.id).then((userInfo) => {
+    res.redirect('/ledger') 
     })
   })
-})
-  .then((returnedUser) => {
-    res.redirect('/ledger')                                 
+}).then((returnedUser) => {                                
   })
     .catch((error) => {
       res.status(400).render('404')
-    })
+  })
 })
 
 
