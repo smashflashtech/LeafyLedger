@@ -244,7 +244,7 @@ header {
   display: inline-grid;
 }
 
-.deadPlant {
+.deadPlant { 
     background: url(https://i.imgur.com/6QJqIeQ.jpg?1);
     height: 410px;
     width: 200px;
@@ -252,7 +252,7 @@ header {
     border: 3px groove lightgray;
   }
 
-.rip {
+.rip { 
   font-size: 18px;
   padding: 0;
   text-align: center;

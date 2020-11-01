@@ -21,11 +21,11 @@ router.get("/", isLoggedIn, (req, res) => {
 
 
 //ROUTE to POST NEW PLANT to DB and JOIN User and PLANT
-router.post('/', (req, res) => {
+router.post('/', (req, res) => {                  
   db.user.findOrCreate({
     where: { id: parseInt(req.body.userId) }
   }).then(([returnedUser, created]) => {
-    db.plant.create(
+    db.plant.create(                                     
       {
         common_name: req.body.common_name,
         scientific_name: req.body.scientific_name,
