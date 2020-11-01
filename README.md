@@ -1,10 +1,10 @@
-# Leafy Ledger
+# Plant Parenthood
 
 Plants brighten up your house, provide a warm, inviting atmosphere, and are shown to boost moods, reduce stress, circulate oxygen, among many other things. However, if you've ever owned plants, you know that it may be difficult to cultivate them and keep them alive. Each plant is unique with different preferences when it comes to climate, sunlight, and water intake. It is also very easy to forget when the last time you watered or repotted your plants.
  
-That's where Leafy Ledger comes in!
+That's where Plant Parenthood comes in!
  
-Our app allows you to access information about your favorite plants and track how often you have watered them. Accessing a vast database, you also can view plants that you are interested in, see if housing them would be a good fit for you, and bookmark them for later. Fret no more about your watering schedules and let Leafy Ledger help you with your plant friends!
+Our app allows you to access information about your favorite plants and track how often you have watered them. Accessing a vast database, you also can view plants that you are interested in, see if housing them would be a good fit for you, and bookmark them for later. Fret no more about your watering schedules and let Plant Parenthood help you with your plant friends!
 
 
 ## Motivation
@@ -29,6 +29,8 @@ The goal of this collaboration was to create an user-friendly application that w
 ![Signup](images/leafyledger-signup.png)
 ![Login](images/leafyledger-login.png)
 ![Plant Directory](images/leafyledger-pd.png)
+![Search Results Found](leafyledger-searchresult-A.png)
+![Search Results Not Found](leafyledger-searchresult-B.png)
 ![Plant Detail](images/leafyledger-d-sn.png)
 ![Plant Detail](images/leafyledger-d-cb.png)
 ![Ledger](images/leafyledger-l.png)
@@ -41,7 +43,7 @@ The goal of this collaboration was to create an user-friendly application that w
 ![ERD](images/erd_p2_leafyledger.png)
 ![Wireframe](images/wireframe_p2_leafyledger.png)
 
-*	As a user I want to log in via email and password to access my Leafy Ledger.
+*	As a user I want to log in via email and password to access my Plant Parenthood.
 *	As a user I will browse the catalogue of plants on the main page that displays content from the Trefle.io API.
 *	From the main page I will be able to add plants to my ledger, click on plants to view more details about plants, and navigate to my ledger.
 *	From the details page, I will be able to favorite plants I am currently viewing or navigate back to main page or my ledger.
