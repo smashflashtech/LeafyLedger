@@ -51,6 +51,16 @@ header {
   font-size: 20px;
   font-family: 'Rock Salt', cursive;
   text-align: center;
+  display: flex;
+}
+
+.sb-container{
+  display: flex;
+}
+
+.sBlurb {
+  align-self: center;
+  padding: 0px 100px;
 }
 
 
