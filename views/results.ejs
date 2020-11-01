@@ -1,0 +1,49 @@
+<h1 class="pdHeading">Search Results</h1>
+
+<section class="pdBody">
+  <div class="search-container">
+    <form action="/search/results" method="GET">
+    <label class="search">Try looking again?: </label><input type="text" name="common_name"><button type="submit">🔍 </button>
+    </form>
+  </div>
+  <section class="pdPlantContainer">
+    <%if (foundPlants.length > 0) {%>
+      <% foundPlants.forEach(foundPlant => { %>
+          <div class="well" href="<%=`/details/${foundPlant.id}`%>">
+            <div class="pdPlantPic">
+              <img class="pdThumb well well-sm" alt="<%= foundPlant.common_name %>" src="<%= foundPlant.image_url %>">
+            </div>
+            <div class="pdPlantDetails">
+              <div class="pdPlantNames">
+                <h2 class ="pdName"><%= foundPlant.common_name %></h2>
+                <h3 class="pdSciName"><%= foundPlant.scientific_name %></h3>
+              </div>
+              <div class ="pdPlantSave">
+                <form method="GET" action="/details/search" class="pdForm">
+                  <input hidden type="text" name="common_name" value="<%= foundPlant.common_name %>">
+                  <button class="btn btn-success" type="submit">View Details 📙</button> 
+                </form>
+                <form method="POST" action="/ledger" class="pdForm">
+                  <input hidden type="text" name="common_name" value="<%= foundPlant.common_name %>">
+                  <input hidden type="text" name="scientific_name" value="<%= foundPlant.scientific_name %>">
+                  <input hidden type="text" name="lastWatered" value="MM/DD/YYYY">
+                  <input hidden type="text" name="status" value="alive">
+                  <input hidden type="text" name="image_url" value="<%= foundPlant.image_url %>">
+                  <input hidden type="text" name="apiId" value="<%= foundPlant.id %>">
+                  <input hidden type="text" name="userId" value="<%= currentUser.id %>"> 
+                  <button class="btn btn-success" type="submit">Save to Ledger ✍️</button> 
+                  </form>
+              </div>
+          </div>
+          </div>
+      <% }) %>
+    <%} else { %>
+      <div class="searchNotFound">
+        <p>We're sorry, we couldn't find anything by that name.
+        <img src="https://media.giphy.com/media/SVU9KcXqmIx72Ody0N/giphy.gif" alt="Crying Cactus" class="searchCryingCactus">
+        Try something different.</p>
+      </div>
+
+    <% } %>  
+  </section>
+</section>

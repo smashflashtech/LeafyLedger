@@ -29,6 +29,31 @@ header {
 .iBlurb{
   margin: 15px 50px 0px 50px;
 }
+
+/* Search Bar */
+
+.search-container{
+  background-color: rgba(255, 255, 255, 0.356);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search {
+  font-family: 'Rock Salt', cursive;
+  margin: 0px;
+  padding: 5px 20px;
+}
+
+.searchNotFound{
+  background-color: rgba(255, 255, 255, .90);
+  padding: 15px 0px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+}
+
+
 /* CSS for Plants Directory */
 
 .pdBody {

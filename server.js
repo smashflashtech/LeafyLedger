@@ -69,6 +69,7 @@ app.use('/auth', require('./routes/auth'));
 app.use('/ledger', require('./routes/ledger'))
 app.use('/cemetery', require('./routes/cemetery'))
 app.use('/details', require('./routes/details'))
+app.use('/search', require('./routes/search'))
 
 
 //~~~~~~~~~~~~~~~~~~~~LISTENING ON...~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
