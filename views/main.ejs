@@ -3,6 +3,11 @@
 <!-- NOTE: API data is in an array called apiPlants -->
 <!-- NOTE: Local JSON data is in an array called plants  -->
 <section class="pdBody">
+  <div class="search-container">
+    <form action="/search/results" method="GET">
+    <label class="search">Looking for something?: </label><input type="text" name="common_name"><button type="submit">🔍 </button>
+    </form>
+  </div>
   <section class="pdPlantContainer">
     <% apiPlants.forEach(apiPlant => { %>
         <div class="well" href="<%=`/details/${apiPlant.id}`%>">

@@ -28,7 +28,7 @@ router.delete('/:id', isLoggedIn, (req, res) => {
 })
 
 //ROUTER that uses parameter (when resurrect button is clicked) from URL pattern to edit status and change to 'alive'
-router.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {                      
     db.plant.update(
         { status: req.body.status },
         { where: { id: req.params.id }} 

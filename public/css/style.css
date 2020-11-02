@@ -29,6 +29,41 @@ header {
 .iBlurb{
   margin: 15px 50px 0px 50px;
 }
+
+/* Search Bar */
+
+.search-container{
+  background-color: rgba(255, 255, 255, 0.356);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search {
+  font-family: 'Rock Salt', cursive;
+  margin: 0px;
+  padding: 5px 20px;
+}
+
+.searchNotFound{
+  background-color: rgba(255, 255, 255, .90);
+  padding: 15px 0px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  display: flex;
+}
+
+.sb-container{
+  display: flex;
+}
+
+.sBlurb {
+  align-self: center;
+  padding: 0px 100px;
+}
+
+
 /* CSS for Plants Directory */
 
 .pdBody {
@@ -244,7 +279,7 @@ header {
   display: inline-grid;
 }
 
-.deadPlant {
+.deadPlant { 
     background: url(https://i.imgur.com/6QJqIeQ.jpg?1);
     height: 410px;
     width: 200px;
@@ -252,7 +287,7 @@ header {
     border: 3px groove lightgray;
   }
 
-.rip {
+.rip { 
   font-size: 18px;
   padding: 0;
   text-align: center;
