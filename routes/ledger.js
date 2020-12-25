@@ -54,6 +54,8 @@ router.delete('/:id', isLoggedIn, (req, res) => {
       id: req.params.id
     }
   }).then((trashPlant) => {
+    console.log(trashPlant)
+    console.log(req.user)
     req.user.removePlant(trashPlant)
     res.redirect('/ledger')
   })
