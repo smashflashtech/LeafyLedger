@@ -12,16 +12,18 @@ The goal of this collaboration was to create an user-friendly application that w
 
 ## Technologies Used
 
-*HTML
-*CSS
-*Javascript
-*Express
-*EJS
-*EJS-Layouts
-*Express-Passport
-*Axios
-*SQL
-*Sequelize
+* HTML
+* CSS
+* Javascript
+* Express
+* EJS
+* EJS-Layouts
+* Express-Passport
+* Node.js
+* Axios
+* SQL
+* Sequelize
+* PostgresSQL
 
 
 ##### Screenshot(s) 
